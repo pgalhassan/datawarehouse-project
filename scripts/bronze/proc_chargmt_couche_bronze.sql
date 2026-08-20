@@ -1,5 +1,8 @@
 /*
-
+Nous avons effectué le chargement des données brutes dans la couche Bronze, en utilisant une stratégie TRUNCATE & INSERT.
+Petit commentaire : le BULK INSERT permet d’effectuer une insertion des données par lots, ce qui améliore les performances lors du chargement de volumes importants.
+Nous avons également défini deux variables permettant de récupérer la date et l’heure de début ainsi que la date et l’heure de fin du chargement. Cela nous a permis de mesurer le temps d’exécution du chargement pour chaque table.
+Cette étape marque la fin du processus de chargement de la couche Bronze.
 */
 
 EXEC bronze.chargement_bronze
