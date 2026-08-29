@@ -1,0 +1,29 @@
+SELECT * FROM bronze.crm_cust_info
+SELECT * FROM bronze.crm_sales_details
+/* apres verification il y a bien relation entre les tables crm_cust_info et crm_sales_details :
+SELECT  cst_id from bronze.crm_cust_info where cst_id not in (SELECT sls_cust_id from bronze.crm_sales_details) */
+
+SELECT * FROM bronze.crm_prd_info
+SELECT * FROM bronze.crm_sales_details
+/*Apres verification il y a bien relation entre les tables crm_prd_info et crm_sales_details :
+SELECT SUBSTRING(prd_key, 7, len(prd_key)) from bronze.crm_prd_info where SUBSTRING(prd_key, 7, len(prd_key))  in (select sls_prd_key from bronze.crm_sales_details)
+ */
+
+
+SELECT * FROM bronze.erp_cust_az12
+SELECT * FROM bronze.erp_loc_a101
+/*Apres verification il y a bien relation entre les tables erp_cust_az12 et erp_loc_a101 :
+SELECT SUBSTRING(cid, 4, len(cid)) FROM bronze.erp_cust_az12 WHERE SUBSTRING(cid, 4, len(cid)) not IN (SELECT REPLACE(cid, '-', '') FROM bronze.erp_loc_a101)
+*/
+
+
+SELECT * FROM bronze.crm_prd_info
+SELECT * FROM bronze.erp_px_cat_g1v2
+
+
+SELECT * FROM bronze.crm_cust_info
+SELECT * FROM bronze.erp_cust_az12
+
+
+SELECT * FROM bronze.crm_cust_info
+SELECT * FROM bronze.erp_loc_a101
